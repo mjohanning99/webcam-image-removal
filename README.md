@@ -1,0 +1,2 @@
+# Webcam image removal
+
