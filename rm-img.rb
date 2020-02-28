@@ -1,5 +1,24 @@
+=begin
+Copyright 2019-2020 Marvin Johanning
+
+This webcam image removal program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+RubyTldr is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+=end
+
 <<-DOC
 This program's main intent is to remove images taken during the dark by a specfic type of webcam.
+
+Sample file name: Snapshot_1903201645.jpg
 DOC
 
 #!/bin/env ruby
@@ -43,21 +62,21 @@ files.each do |file|
         sunset_no_dst = sunset_no_dst.to_s + "#{sun_times.set(day, latitude, longitude).min}"
         sunset_dst    = sunset_dst.to_s + "#{sun_times.set(day, latitude, longitude).min}"
   else
-      sunset_no_dst  = sunset_no_dst.to_s  + "10"
-      sunset_dst  = sunset_dst.to_s  + "10"
+      sunset_no_dst   = sunset_no_dst.to_s  + "10"
+      sunset_dst      = sunset_dst.to_s  + "10"
   end
   
   
   #Sunrise times
   sunrise_no_dst = sun_times.rise(day, latitude, longitude).hour + 1 
-  sunrise_dst   = sun_times.rise(day, latitude, longitude).hour + 2 
+  sunrise_dst    = sun_times.rise(day, latitude, longitude).hour + 2 
     
   if sun_times.rise(day, latitude, longitude).min >= 10 then
         sunrise_no_dst = sunrise_no_dst.to_s + "#{sun_times.rise(day, latitude, longitude).min}"
-        sunrise_dst   = sunrise_dst.to_s + "#{sun_times.rise(day, latitude, longitude).min}"
+        sunrise_dst    = sunrise_dst.to_s + "#{sun_times.rise(day, latitude, longitude).min}"
   else
-      sunrise_no_dst  = sunrise_no_dst.to_s  + "10"
-      sunrise_dst  = sunrise_dst.to_s  + "10"
+      sunrise_no_dst   = sunrise_no_dst.to_s  + "10"
+      sunrise_dst      = sunrise_dst.to_s  + "10"
   end
   
   
